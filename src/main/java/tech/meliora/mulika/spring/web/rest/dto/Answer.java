@@ -2,27 +2,27 @@ package tech.meliora.mulika.spring.web.rest.dto;
 
 public class Answer {
 
-    private int product;
+    private int ans;
 
     public Answer() {
     }
 
     public Answer(int product) {
-        this.product = product;
+        this.ans = product;
     }
 
-    public int getProduct() {
-        return product;
+    public int getAns() {
+        return ans;
     }
 
-    public void setProduct(int product) {
-        this.product = product;
+    public void setAns(int ans) {
+        this.ans = ans;
     }
 
     @Override
     public String toString() {
         return "Answer{" +
-                "product=" + product +
+                "ans=" + ans +
                 '}';
     }
 }

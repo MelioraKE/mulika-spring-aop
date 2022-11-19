@@ -14,17 +14,17 @@ import tech.meliora.mulika.spring.web.rest.dto.Request;
 
 @RestController
 @RequestMapping("/api")
-public class ProductController {
+public class SumController {
 
-    private final Logger log = LoggerFactory.getLogger(ProductController.class);
+    private final Logger log = LoggerFactory.getLogger(SumController.class);
 
-    private final String productEndpoint = "http://51.15.211.168/api/product.php";
+    private final String productEndpoint = "http://51.15.211.168/api/sum.php";
 
     @Autowired
     ProductService productService;
 
-    @PostMapping("/product")
-    public ResponseEntity<Answer> product(@RequestBody Request request) throws Exception {
+    @PostMapping("/sum")
+    public ResponseEntity<Answer> sum(@RequestBody Request request) throws Exception {
 
         log.info("REST request to find product : {}", request);
 
