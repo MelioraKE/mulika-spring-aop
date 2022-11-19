@@ -191,6 +191,7 @@ public class MulikaConnector {
             requestMap.put("totalRequests", service.getTotalRequests());
             requestMap.put("successTotal", service.getSuccessTotal());
             requestMap.put("rejectedMessages", service.getRejectedMessages());
+            requestMap.put("queueSize", service.getQueueSize());
 
             service.resetCounters();
 
