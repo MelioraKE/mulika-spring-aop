@@ -30,6 +30,14 @@ public class MulikaServiceDTO {
         this.transactionTime = transactionTime;
     }
 
+    public ServiceType getType() {
+        return type;
+    }
+
+    public void setType(ServiceType type) {
+        this.type = type;
+    }
+
     public String getName() {
         return name;
     }
@@ -105,12 +113,13 @@ public class MulikaServiceDTO {
     @Override
     public String toString() {
         return "MulikaServiceDTO{" +
-            "name='" + name + '\'' +
-            ", totalRequests=" + totalRequests +
-            ", successTotal=" + successTotal +
-            ", rejectedMessages=" + rejectedMessages +
-            ", queueSize=" + queueSize +
-            ", transactionTime=" + transactionTime +
-            '}';
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", totalRequests=" + totalRequests +
+                ", successTotal=" + successTotal +
+                ", rejectedMessages=" + rejectedMessages +
+                ", queueSize=" + queueSize +
+                ", transactionTime=" + transactionTime +
+                '}';
     }
 }

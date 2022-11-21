@@ -30,7 +30,6 @@ public class ProductService {
             request
         );
 
-
         try {
             String jsonRequest = objectMapper.writeValueAsString(request);
 

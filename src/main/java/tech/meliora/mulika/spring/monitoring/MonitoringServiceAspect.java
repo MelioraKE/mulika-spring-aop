@@ -10,21 +10,21 @@ import org.springframework.context.annotation.Configuration;
 
 @Aspect
 @Configuration
-public class MonitoringAspect {
+public class MonitoringServiceAspect {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     /**
      * Pointcut that matches all Web REST endpoints.
      */
-    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
-    public void webRestPointcut() {
+    @Pointcut("within(@org.springframework.stereotype.Service *)")
+    public void servicePointcut() {
 
         log.info("invoked");
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
 
-    @Around("webRestPointcut()")
-    public Object reportEndpoint(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("servicePointcut()")
+    public Object reportService(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
 
         String className = joinPoint.getSignature().getDeclaringType().getSimpleName();
@@ -32,14 +32,19 @@ public class MonitoringAspect {
         boolean successful = true;
         int queueSize = 0;
 
-        log.info("invoked");
+        log.info("service-invoked");
 
         try {
             Object result = joinPoint.proceed();
 
-            MulikaConnector.report(className, methodName, successful, (int) (System.currentTimeMillis() - startTime), queueSize);
 
-            log.info("finished");
+            for(Object arg: joinPoint.getArgs()){
+                log.info("service-arg: "+ arg);
+            }
+
+//            MulikaConnector.report(className, methodName, successful, (int) (System.currentTimeMillis() - startTime), queueSize);
+
+            log.info("service-finished");
 
             return result;
 

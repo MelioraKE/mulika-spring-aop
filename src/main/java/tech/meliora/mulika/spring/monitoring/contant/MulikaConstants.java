@@ -13,9 +13,9 @@ public class MulikaConstants {
 
     public static String MONITORING_URL = "https://mulika.meliora.co.ke/api/statistics/report-list";
 
-    public static String API_KEY = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBwb3J0QG1lbGlvcmEudGVjaCIsImF1dGgiOiJST0xFX0FQSS" +
-            "IsIm9pZCI6NTAsIm90eXBlIjoiQ0xJRU5UIiwiZXhwIjoxOTg0MTkwNTY1fQ.LkssTIZGc3v3TsdVNT-Tyll09utaooIU4eAT6eyBls1Na" +
-            "mUTPSvWxw1qg_N3EFa3CaAidjxGRtHL7irOy5Zfog";
+    public static String API_KEY = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBwb3J0QG1lbGlvcmEudGVjaCIsImF1dGgiOiJST0xFX0FQS" +
+            "SIsIm9pZCI6NTAsIm90eXBlIjoiQ0xJRU5UIiwiZXhwIjoxOTg0MTkwNTY1fQ.LkssTIZGc3v3TsdVNT-Tyll09utaooIU4eAT6eyBls" +
+            "1NamUTPSvWxw1qg_N3EFa3CaAidjxGRtHL7irOy5Zfog";
 
 
     public static String APP_NAME = "App1";

@@ -133,6 +133,23 @@ public class MulikaConnector {
                 "service : {}, map: {}", className, method, successful, transactionTime, mulikaServiceDTO, servicesMap);
     }
 
+    public static void reportClient(String serviceName, boolean successful, int transactionTime, int queueSize) {
+        log.debug("Request to report service {}, result : {}, transactionTime : {}", serviceName, successful, transactionTime);
+
+        MulikaServiceDTO mulikaServiceDTO = servicesMap.get(serviceName);
+
+        if (mulikaServiceDTO == null) {
+            mulikaServiceDTO = new MulikaServiceDTO(ServiceType.CLIENT,
+                    serviceName, 0, 0, 0, 0, 0);
+            servicesMap.put(serviceName, mulikaServiceDTO);
+        }
+
+        mulikaServiceDTO.addRequest(successful, transactionTime, queueSize);
+
+        log.info("Successfully reported: service: {}, result : {}, transactionTime : {}, " +
+                "service : {}, map: {}",serviceName, successful, transactionTime, mulikaServiceDTO, servicesMap);
+    }
+
     private static String getServiceName(String className, String method) {
         if (className != null && method != null) {
             return className + "." + method; // AccountResource.getAccount
@@ -184,7 +201,7 @@ public class MulikaConnector {
             Map<String, Object> requestMap = new HashMap<>();
             requestMap.put("id", service.getName());
             requestMap.put("name", service.getName());
-            requestMap.put("type", "SERVICE");
+            requestMap.put("type", service.getType());
             requestMap.put("applicationName", app);
             requestMap.put("moduleName", module);
             requestMap.put("transactionTime", service.getAvgTransactionTime());
