@@ -16,7 +16,7 @@ public class MonitoringServiceAspect {
     /**
      * Pointcut that matches all Web REST endpoints.
      */
-    @Pointcut("within(@org.springframework.stereotype.Service *)")
+    @Pointcut("execution(public * tech.meliora.mulika.spring.service.ProductService.product(..))")
     public void servicePointcut() {
 
         log.info("invoked");
@@ -37,12 +37,6 @@ public class MonitoringServiceAspect {
         try {
             Object result = joinPoint.proceed();
 
-
-            for(Object arg: joinPoint.getArgs()){
-                log.info("service-arg: "+ arg);
-            }
-
-//            MulikaConnector.report(className, methodName, successful, (int) (System.currentTimeMillis() - startTime), queueSize);
 
             log.info("service-finished");
 
