@@ -26,7 +26,7 @@ public class ProductController {
 
         log.info("REST request to find product : {}", request);
 
-        Answer answer = productService.product(request, productEndpoint);
+        Answer answer = productService.product(request, productEndpoint, "hello");
 
         log.info("REST answer is : {}", answer);
 

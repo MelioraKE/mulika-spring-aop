@@ -26,6 +26,8 @@ public class MonitoringControllerAspect {
 
     @Around("webRestPointcut()")
     public Object reportEndpoint(ProceedingJoinPoint joinPoint) throws Throwable {
+
+        //before
         long startTime = System.currentTimeMillis();
 
         String className = joinPoint.getSignature().getDeclaringType().getSimpleName();
@@ -36,7 +38,9 @@ public class MonitoringControllerAspect {
         log.info("invoked");
 
         try {
-            Object result = joinPoint.proceed();
+            Object result = joinPoint.proceed(); //execution happens...
+
+            //after
 
             for (Object arg : joinPoint.getArgs()) {
                 log.info("arg: " + arg);

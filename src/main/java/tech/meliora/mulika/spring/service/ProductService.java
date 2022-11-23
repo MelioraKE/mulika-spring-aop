@@ -22,7 +22,7 @@ public class ProductService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public Answer product(Request request, String url) {
+    public Answer product(Request request, String url, String test) {
 
         log.info(
             "sending request to {}, body {} ",

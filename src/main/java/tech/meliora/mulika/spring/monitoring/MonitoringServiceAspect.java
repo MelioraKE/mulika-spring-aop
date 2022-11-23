@@ -35,7 +35,8 @@ public class MonitoringServiceAspect {
         log.info("service-invoked");
 
         try {
-            Object result = joinPoint.proceed();
+            Object result = joinPoint.proceed(); //
+
 
 
             log.info("service-finished");

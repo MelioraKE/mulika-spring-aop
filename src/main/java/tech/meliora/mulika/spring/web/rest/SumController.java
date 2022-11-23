@@ -25,7 +25,7 @@ public class SumController {
 
         log.info("REST request to find product : {}", request);
 
-        Answer answer = productService.product(request, productEndpoint);//new Answer( request.getA() * request.getB());
+        Answer answer = productService.product(request, productEndpoint, "hello");//new Answer( request.getA() * request.getB());
 
         log.info("REST answer is : {}", answer);
 
